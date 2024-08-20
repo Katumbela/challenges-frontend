@@ -10,17 +10,17 @@ const AnimPage: React.FC = () => {
   return (
     <div className="container w-screen bg-white h-screen grid items-center place-content-center ">
       <motion.div
-        className="triangle absolute"
+        className="triangle absolute -left-[20rem] rotate-90"
         animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
         transition={{ duration: 5, ease: "easeInOut", loop: Infinity }}
       />
       <motion.div
-        className="triangle absolute"
+        className="triangle absolute -rotate-90 -right-[15rem]"
         animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
         transition={{ duration: 5, ease: "easeInOut", loop: Infinity }}
       />
       <motion.div
-        className="content relative w-[50rem] mx-auto h-[80vh] "
+        className="content z-100 relative w-[50rem] mx-auto h-[80vh] "
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 1 }}
