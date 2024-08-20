@@ -1,56 +1,55 @@
+"use client"
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Box } from '@react-three/drei';
-import './App.css';
+import { icons } from '@/utils/image.exporter';
 
-const App: React.FC = () => {
+const AnimPage: React.FC = () => {
   return (
-    <div className="container">
-      {/* Background Animation */}
+    <div className="container w-screen bg-white h-screen grid items-center place-content-center ">
       <motion.div
-        className="background"
-        initial={{ x: '-100vw', opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.5 }}
+        className="triangle absolute"
+        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+        transition={{ duration: 5, ease: "easeInOut", loop: Infinity }}
       />
-
-      {/* 3D Animation */}
-      <Canvas className="canvas">
-        <OrbitControls enableZoom={false} />
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[2, 5, 2]} intensity={1} />
-        <Box>
-          <meshStandardMaterial attach="material" color="orange" />
-        </Box>
-      </Canvas>
-
-      {/* Main Content */}
       <motion.div
-        className="content"
+        className="triangle absolute"
+        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+        transition={{ duration: 5, ease: "easeInOut", loop: Infinity }}
+      />
+      <motion.div
+        className="content relative w-[50rem] mx-auto h-[80vh] "
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 1 }}
       >
+
+        <div>
+          {/* Dock Icons */}
+          <div className="dock">
+            {[icons.icon1, icons.icon2, icons.icon3, icons.icon4, icons.icon5].map((icon, index) => (
+              <motion.img
+                key={index}
+                src={icon.src}
+                alt={`Ícone ${index + 1}`}
+                className="dock-icon"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: 'spring', stiffness: 1000, duration: .1 }}
+              />
+            ))}
+          </div>
+        </div>
         <h1>Every hero needs a sidekick. We have two.</h1>
         <p>Enjoy our award-winning macOS app, share all of your projects in the browser, and take Sketch with you.</p>
+
+
       </motion.div>
 
-      {/* Dock Icons */}
-      <div className="dock">
-        {['icon1.png', 'icon2.png', 'icon3.png'].map((icon, index) => (
-          <motion.img
-            key={index}
-            src={icon}
-            alt={`Ícone ${index + 1}`}
-            className="dock-icon"
-            whileHover={{ scale: 1.2 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          />
-        ))}
-      </div>
+
     </div>
   );
 };
 
-export default App;
+export default AnimPage;
