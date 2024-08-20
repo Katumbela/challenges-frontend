@@ -2,69 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-.input-create {
-  @apply mt-1 text-black block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  position: relative;
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  z-index: -2;
-  animation: bgAnimation 10s infinite alternate;
-}
 
 @keyframes bgAnimation {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(100px);
   }
@@ -79,15 +26,6 @@ body, html {
   border-radius: 10px;
 }
 
-.canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-
 .dock {
   position: absolute;
   bottom: 20px;
@@ -100,5 +38,16 @@ body, html {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+}
+
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 173px solid;
+  background: linear-gradient(45deg, #ff6b6b, #f06595);
+  background-size: 400% 400%;
 }
