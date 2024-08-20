@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
@@ -16,13 +18,13 @@ const ScrollAnimation: React.FC = () => {
       }}
     >
       <motion.img
-        src="sua-imagem.jpg"
+        src="https://w0.peakpx.com/wallpaper/415/344/HD-wallpaper-curves-bg-wp-abstract.jpg"
         alt="Imagem"
         style={{
           scale,
           rotate,
           transition: 'all 0.2s ease-out',
-          width: '300px',
+          width: '800px',
         }}
       />
     </motion.div>
